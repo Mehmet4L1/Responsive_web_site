@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,100&display=swap');/*Font sizemizi gogle fonttan import ettik*/
+
+:root{ /* kök dizinleri oluşturuyoruz ki daha sonra kolayca kullanabilelim */
+    --main-color: #e84242;
+    --black-color: #0e0e0e ;
+    --border: 0.1rem solid rgba(255,255,255,0.4);
+}
+body{
+    background-color:var(--main-color);
+}
+section{ /* content,menü,harita vs. hepsinin kapsayıcısı, hizayı bununla vericez*/
+    padding: 3.5rem 7%; /* Header kısmına da sağ-sol %7 verdik,o yüzden burda da aynısını kullandık*/
+}
+.btn{ /*tüm buton sınıflarına ortak css*/
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 2rem 3.75rem;
+    border-radius: 30rem;
+    font-size: 1.75rem;
+    color: #fff;
+    background-color: var(--black-color);
+    animation: 1s ease;
+}
+.btn:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.heading{ /* menü h1 içindeki "our menu" yazısı cssi*/
+    color: #fff;
+   text-transform: none;
+   font-size: 4rem;
+   margin-bottom:3.5rem ;
+   border-bottom: .1rem solid #fff; /*h1 etiketi block elementtir, border tüm satırı kaplar*/
+}
+.heading span{
+    text-transform: uppercase;
+    color: var(--black-color);
+}
+
+*{
+    font-family: 'Poppins', sans-serif; /* import ettiğimiz yazı fontunu burda uyguluyoruz*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;/*a etiketlerinin altındaki izgileri kaldırır.*/
+    text-transform: capitalize; /* Baş harflrtini, tamamını büyük-küçük yazdırmamızı sağlar*/
+    transition: .2s ease; /* rootta transition veririz. Sonrasında hepsi için kullanabiliriz*/
+}
+/* base html codes */
+html{ /* tüm html e ortak kodlar yazıyoruz*/
+    font-size: 62.5%; /* normalde 1rem=16px iken , bu şekilde 1rem=10px olur*/ /*responsiv yapılarda px sıkıntı çıkarır. Rem ile belirtmemiz geerekir.Hesaplamanın kolay olabilmesi için bu işlem yapılır*/
+    overflow-x: hidden; /* İçerik x ekseninde  ekrana sığmadığında , scroll çıkmasını önler.*/
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+} 
+html::-webkit-scrollbar{ /*tarayıcı scrollbarı yerine kendi scrollumuzu yapıyoruz*/
+    width: .9rem;
+    background-color: #fff;
+}
+html::-webkit-scrollbar-track{ /*scrollbar arka planı oluşturabiliriz*/
+    background-color: transparent;
+}
+html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
+    border-radius: 1rem;
+    background-color: var(--black-color);
+    animation: 3s ease-in-out;
+}
+
+/*header start*/
+
+.header .logo img{
+    height: 10rem;
+}
+.header{
+    background-color: white; /* header kımının background colorunu belirliyoruz*/
+    display: flex; /*yan yana koyduk*/
+    align-items: center; /* dikeyde hizaladık-ortaladık*/
+    justify-content: space-between;/*yatayda aralarına eşit mesafe koyduk*/
+    padding: 0 7%;/*üst-alt 0 boşluk, sağ-sol %7 boşluk verdik*/
+    margin: 2rem 7%; /*alt-üst 2rem boşluk , sağ-sol %7 boşluk*/
+    border-radius: 30rem; /*border köşelerini eğimli yaptık*/
+    box-shadow: -5px 5px 10px 0 rgba(0,0,0,0.75); /*header box'a gölge verdik*/
+    position: sticky; /*header, top:0px olduğunda, scroll ile aşağı kaydırsakta yukarda yapışık şekilde sabit kalır*/
+    top:0;
+    z-index: 1000; /* Çok yüksek bir sayı verdik çünkü önünü hiçbir şeyin kapatmasını istemiyoruz*/
+}
+
+.header .navbar a{
+    margin: 0 1rem ;
+    font-size: 1.6rem; /*1.6rem artık 16px e eşit oldu*/
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent; /*0.1rem=1px, transparent dememizin sebebi, animasyon bittiğinde bordr çizgisinin kaybolması için */
+}
+.header .navbar a:hover{
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+.header .buttons button{
+    cursor: pointer;
+    font-size: 2.5rem; /*25px oluyor*/
+    margin-left: 2rem;
+    background-color: transparent; 
+}
+/*header end*/
+/*Home start*/
+.home{
+    min-height: 100vh;
+    background: url(/images/home.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top:-14.46rem; /*headerın arka plan rengini, background image ile kapattık. Bunun için margin topta 145px lik bir mesafe vardı. 14.5rem=145px ediyor. (-14.5rem)işimizi gördü.*/
+    display:flex; /*content içinedki yazıları ekranda ortalayabilmek için */
+    align-items: center;
+
+}
+.home .content{
+    max-width: 60rem;
+    
+}
+.home .content h3{
+    font-size: 6rem; 
+    color: #fff;
+}
+.home .content p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+}
+/*Home end*/
+/**Menu Start*/
+
+
+.menu .box-container{
+    display: grid; /*menü kapsayıcı konteynırına grid yapısını uyguluyoruz*/
+    grid-template-columns: repeat(auto-fit, minmax( 30rem, 1fr));/* auto-fitle tekrar et , min 30rem , max 1fr boyutunda)*/
+}
+.menu .box-container .box img{ /* imagelere yükseklik giriyoruz*/
+    width: 100%; /*genişliğinin %100 ünü kullan*/
+    object-fit: cover; /*boyutu belirlenmiş görselin nasıl davranacağını belirtiriz. (cover=kapsa , contain=netliğini koru, fill=doldur)*/
+    gap: 1.5rem;
+
+}
+.menu .box-container .box{ /*menu boxlarını düzenliyoruz*/
+    padding: 3rem;
+    margin: 1rem;
+    border-radius: 3rem;
+    background-color: #fff;
+    min-height: 60rem;/*600px*/
+    display: flex;
+    flex-direction: column; /* flex yapısı defaultta roe=satırdadır. Biz burda sütun kullanacağız*/
+    align-items: flex-start; /*menu box içndeki öğelr (yazı,fiyat,buton) sütuna göre ortalandı*/ 
+    justify-content: space-between;
+}
+.menu .box-container .box .menu-category{ /*pizza yazısına css*/
+    font-size: 1.2rem;
+}
+.menu .box-container .box h3{
+    padding: 1rem 0;
+    font-size: 3rem;
+}
+.menu .box-container .box .price{
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+}
+.menu .box-container .box .price span{
+    font-size: 1.5rem; /* üstü çizik yazı daha küçük ve ince fontlu olsun*/
+    font-weight: 300;
+    text-decoration: line-through; /*span içerisine yazılı olan içeriğin üstünü çizer*/ 
+}
+
+
+/**Menu End*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
