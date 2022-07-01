@@ -25,6 +25,7 @@ a{
     color: #fff;
     background-color: var(--black-color);
     animation: 1s ease;
+    cursor: pointer;
 }
 .btn:hover{
     transform: scale(1.1);
@@ -41,7 +42,14 @@ a{
     text-transform: uppercase;
     color: var(--black-color);
 }
+.search-input{ /*footerdali search butonunun css i*/
+    border-radius: 3rem;
+    color: var(--black-color);
+    padding:  1rem ;
+    font-size: 1.6rem;
+    text-transform: none;
 
+}
 *{
     font-family: 'Poppins', sans-serif; /* import ettiğimiz yazı fontunu burda uyguluyoruz*/
     margin: 0;
@@ -51,7 +59,7 @@ a{
     border: none;
     text-decoration: none;/*a etiketlerinin altındaki izgileri kaldırır.*/
     text-transform: capitalize; /* Baş harflrtini, tamamını büyük-küçük yazdırmamızı sağlar*/
-    transition: .2s ease; /* rootta transition veririz. Sonrasında hepsi için kullanabiliriz*/
+    transition: .3s ease; /* rootta transition veririz. Sonrasında hepsi için kullanabiliriz*/
 }
 /* base html codes */
 html{ /* tüm html e ortak kodlar yazıyoruz*/
@@ -107,6 +115,9 @@ html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
     font-size: 2.5rem; /*25px oluyor*/
     margin-left: 2rem;
     background-color: transparent; 
+}
+#menu-btn{
+    display: none; /*başlangıçta gözükmesin istiyoruz. Medya query ie ,ekran küçülünce ortaya çıksın*/
 }
 /*header end*/
 /*Home start*/
@@ -337,10 +348,196 @@ html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
 /*Review End*/
 
 /*Contact Start*/
-
-
+.contact .row{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 1rem;
+    background-color: var(--black-color) ;
+    color: #fff;
+}
+.contact .row .map{ /*aynı özellikleri form a da verirsek eşit hizalama yapmış oluruz. Yoksa map çok büyük alan kaplar*/
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+.contact .row form{ /*aynı özellikleri form a da veriyoruz*/
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    border: var(--border);
+}
+.contact .row form .inputBox i{
+    color: #fff;
+    font-size: 2rem;
+    padding: .1rem;
+}
+.contact .row form .inputBox input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #fff;
+    text-transform: none;
+    background-color:transparent; /*backgroundu transparent yaparak kaldırıyoruz*/ 
+}
+.contact .row form .btn{
+    color: var(--main-color);
+    background-color: #fff;
+    font-weight: bold;
+}
 
 /*Contact End*/
+/*Blogs Section Start*/
+.blog .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+.blog .box-container .box{
+    background-color: #fff;
+    border-radius: 3rem;
+}
+.blog .box-container .box .image{ /*image clası , img lerin kapsayıcısı. Asıl ayarlamaları aşağıda  img etiketine yapacağız*/
+    height: 25rem;
+    overflow: hidden;
+    width: 100%;
+    border-top-left-radius: 3rem; /*resim, boxumuzdan height olarak daha kısa(25rem) ve boxun önünde olduğu için , box gibi top left/right'ı radiuslayamayız. Ayrı bir kod yazmak gerekir*/
+    border-top-right-radius: 3rem;
+}
+.blog .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.blog .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+.blog .box-container .box .content{
+    padding: 2rem;
+}
+.blog .box-container .box .content .title{
+    line-height: 1.5;
+    font-size: 2.5rem;
+}
+.blog .box-container .box .content span{
+    display: block; /*block element gibi davransın,peşine gelen , alt satırdan başlasın*/
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+.blog .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ccc;
+    padding: 1rem 0;
+
+}
+
+
+/*Blogs Section End*/
+
+/*Footer Section Start*/
+.footer{
+    background-color: var(--black-color);
+    text-align: center;
+
+}
+.footer .search{
+    display: flex;
+    justify-content: center;
+}
+.footer .search .search-input{
+    width: 30rem;
+}
+.footer .search .btn-primary{
+    background-color:var(--main-color);
+    padding: 1rem 2rem;
+    margin: 1rem;
+}
+.footer .share{
+    padding: 2rem 0;
+}
+
+.footer .share a{
+    padding: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    color: #fff;
+    font-size: 2rem;
+    margin: .3rem;
+    border: var(--border);
+    border-radius: 50%;
+}
+.footer .share a:hover{
+    background-color:var(--main-color);
+}
+.footer .share a:hover i{ /*a hover olduğunda i etiketine uygula*/
+    transform: scale(1.3);
+}
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer .links a{
+    color: #fff;
+    font-size: 1.6rem;
+    padding: .7rem 1.5rem;
+    border: var(--border);
+    background-color:var(--main-color);
+}
+.footer .links a:hover{
+    background-color:var(--black-color);
+    opacity: .7;
+}
+.footer .credit{
+    color: #fff;
+    padding: 2rem;
+    font-size: 1rem;
+}
+.footer .credit span{
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+
+/*Footer Section End*/
+
+/*Responsive Start*/
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+    .header .logo img{
+        height: 7rem;
+    }
+    section{
+        padding: 2rem;
+    }
+    .products .box-container .box .box-head .name{
+        font-size: 3.4rem;
+    }
+}
+@media (max-width:768px){
+    #menu-btn{
+        display: inline-block;
+    }
+
+}
+
+
+/*Responsive End*/
 
 
 
