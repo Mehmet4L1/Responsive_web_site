@@ -82,6 +82,33 @@ html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
 }
 
 /*header start*/
+.header .search-form{ /*search butonuna tıklandığında , headerın altında oluşacak search eklentisini tasarlıyoruz*/
+    position: absolute; 
+    top: 115%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;
+    height: 5rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center; /*içindekileri (search yazısı ve butonu) dikeyde ortaladık*/ 
+    justify-content: space-between; /*yatayda sağa sola eşit aralıklarla yaydık*/
+    border: var(--border);
+    border-radius: 3rem;
+    box-shadow: 0 0 25px 2px rgb(0 0 0 / 75%);
+    transform: scaleY(0); /*display=none de diyebiliriz.Vermek istediğimiz animasyona bağlı. Şimdilik ekranda gözükmesini istemiyoruz. JS codlarıyla, active olduğunda ortaya çıksın istiyoruz.*/
+}
+.header .search-form i{
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--black-color);
+}
+.header .search-form input{
+    width: 100%;
+}
+.header .search-form.active{
+    transform: scaleY(1);
+}
 
 .header .logo img{
     height: 10rem;
@@ -116,9 +143,64 @@ html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
     margin-left: 2rem;
     background-color: transparent; 
 }
-#menu-btn{
-    display: none; /*başlangıçta gözükmesin istiyoruz. Medya query ie ,ekran küçülünce ortaya çıksın*/
+.header #menu-btn{
+    display: none; /* bars ikonunun başlangıçta gözükmemesini istiyoruz. Medya query ie ,ekran küçülünce ortaya çıkması için responsive yapıda css kodu yazacağız.*/
 }
+.header .cart-items-container{
+    position: absolute;
+    top: 95%;
+    height: calc(100vh - 9.5rem);
+    width: 30rem;
+    background-color: #fff;
+    box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+    right: -100%; /*JS ile active olana kadar ekranda gösterme*/
+}
+.header .cart-items-container.active{
+    right: 3rem; /*active olduğunda sağdan 30px mesafede konumlan*/
+}
+.header .cart-items-container .cart-item{
+    position: relative;
+    display:flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+.header .cart-items-container .cart-item:hover{
+    box-shadow:0px 0px 14px 0px rgb(0 0 0 / 75%);
+}
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+.header .cart-items-container .cart-item:hover img,
+.header .cart-items-container .cart-item:hover .content{ /* cart-item hover olduğunda img ye ve contente scale ver*/
+    transform: scale(1.1);
+}
+.header .cart-items-container .cart-item i{ /* X işaretinin konumunu absolute yapıyoruz ki sağ üste alabilelim*/
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black-color);
+}
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color: var(--black-color);
+    padding-bottom: .5rem;
+}
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
+    color: var(--black-color);
+}
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+    border-radius: unset;/*border-radius u ve scale i unset yaptık diğer btn lerden farklı olarak*/
+    transform: scale(1);
+
+}
+
+
 /*header end*/
 /*Home start*/
 .home{
@@ -530,10 +612,36 @@ html::-webkit-scrollbar-thumb{/*scrolldaki imleç*/
     }
 }
 @media (max-width:768px){
-    #menu-btn{
-        display: inline-block;
+    .header #menu-btn{
+        display: inline-block; /*display=none olan menu-btn u , 768px den küçükse inline block olarak gözükecek*/
+    }
+    .header .navbar{ /*header kımını , 768px altında , açılır menü yapıyoruz*/
+        position: absolute;/*pozisyonunu değiştirebilmek için*/
+        top:95%; /* nav barı,headerın altına aldık*/
+        background-color: #fff;
+        height: calc(100vh - 9.5rem); /*100vh den 95px eksik olacak şekilde yükseklik verdik*/
+        width: 30rem;
+        box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+        right: -100%; /*sayfadan kaybettik , hover anında sayfanın sağından ekrana kayarak girecek*/
+        cursor: pointer;
+    }
+    .header .navbar.active{
+        right: 3rem;
+    }
+    .header .navbar a{ /*açılır menü olduklarında yan yana değil alt alta olacaklar*/
+        color: var(--black-color);
+        display: block; /* blok element olup alt alta gelmeleri için*/
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
     }
 
+}
+@media (max-width:576px){
+    html{
+        font-size: 50%;
+    }
+    
 }
 
 

@@ -13,30 +13,77 @@
         <a href="#" class="logo">
             <img class="logo" src="images/logo.png" alt="Logo">
         </a>
-        <nav class="navbar">
-            <a class="" href="#"> Home</a>
-            <a class="" href="#"> About</a>
-            <a class="" href="#"> Menu</a>
-            <a class="" href="#"> Products</a>
-            <a class="" href="#"> Review</a>
-            <a class="" href="#"> Contact</a>
-            <a class="" href="#"> Blogs</a>
+        <nav class="navbar ">
+            <a class="" href="#home"> Home</a>
+            <a class="" href="#about"> About</a>
+            <a class="" href="#menu"> Menu</a>
+            <a class="" href="#products"> Products</a>
+            <a class="" href="#review"> Review</a>
+            <a class="" href="#contact"> Contact</a>
+            <a class="" href="#blog"> Blogs</a>
         </nav>
         <div class="buttons" >
-            <button>
+            <button id="search-btn"> <!--id ile JS kodu yazacağız-->
                 <i class="fas fa-search"></i> <!-- ikon etiketi "i" kullanıyoruz-->
             </button>
-            <button>
+            <button id="cart-btn">
                 <i class="fas fa-shopping-cart"></i> <!-- ikon etiketi "i" kullanıyoruz-->
             </button>
-            <button>
-                <i class="fas fa-bars" id="menu-btn"></i> <!-- responsiv yapıya geçtiğimizde ortaya çıkacak olan menü ikonu,bunun için id atadık ve responsive css te yazacağız-->
+            <button id="menu-btn"><!-- responsiv yapıya geçtiğimizde ortaya çıkacak olan menü ikonu,bunun için id atadık ve responsive css te yazacağız-->
+                <i class="fas fa-bars" ></i> 
             </button>
+        </div>
+        <div class="search-form"> <!--Search butonu active olduğunda çıkacak olan search sekmesi-->
+            <input type="text" id="search-box" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="cart-items-container"> <!--Alışveriş sepetine tıkladığımızda çıkacak olan cart sekmesi-->
+            <div class="cart-item">
+                <i class="fas fa-times"></i>
+                <img src="images/menu-1.png" alt="menu1">
+                <div class="content">
+                    <h3>cart item 01</h3>
+                        <div class="price">$15.99/-</div>
+                    
+                </div>
+                
+            </div>
+            <div class="cart-item">
+                <i class="fas fa-times"></i>
+                <img src="images/menu-2.png" alt="menu1">
+                <div class="content">
+                    <h3>cart item 02</h3>
+                        <div class="price">$13.99/-</div>
+                    
+                </div>
+                
+            </div>
+            <div class="cart-item">
+                <i class="fas fa-times"></i>
+                <img src="images/menu-3.png" alt="menu1">
+                <div class="content">
+                    <h3>cart item 03</h3>
+                        <div class="price">$16.99/-</div>
+                    
+                </div>
+                
+            </div>
+            <div class="cart-item">
+                <i class="fas fa-times"></i>
+                <img src="images/menu-4.png" alt="menu1">
+                <div class="content">
+                    <h3>cart item 04</h3>
+                        <div class="price">$12.99/-</div>
+                    
+                </div>
+                
+            </div>
+            <a href="#" class="btn">check out now</a>
         </div>
     </header>
     <!--Header end-->
     <!--Home section start-->
-    <section class="home" >
+    <section class="home" id="home" >
         <div class="content">
             <h3>EXPRESS HOME DELIVERY</h3>
     
@@ -46,7 +93,7 @@
     </section>
  <!--Home section end-->
  <!--Menu section start-->
-    <section class="menu" >
+    <section class="menu" id="menu" >
         <h1 class="heading" >OUR <span>MENU</span></h1>
         <div class="box-container"> <!--menüdeki 4 ürünün kapsayıcı konteynırı-->
             <div class="box"> <!--ilk box-->
@@ -100,7 +147,7 @@
 
     <!--Menu section end-->
     <!--Products section start-->
-    <section class="products">
+    <section class="products" id="products">
     <h1 class="heading" >OUR <span>PRODUCTS</span></h1>
     <div class="box-container">
         <div class="box">
@@ -171,7 +218,7 @@
 
     <!--Products section end-->
     <!--About section start-->
-    <section class="about">
+    <section class="about" id="about">
         <h1 class="heading" >ABOUT <span>US</span></h1>
         <div class="row"><!--img ile p yi yan yana bölebilmek için(biri sağa diğeri sola) row kapsayıcısına aldım-->
             <div class="image">
@@ -190,7 +237,7 @@
     <!--About section end-->
     
     <!--Review section start-->
-    <section class="review">
+    <section class="review" id="review">
         <h1 class="heading" >CUSTOMER'S <span>review</span></h1>
         <div class="box-container">
             <div class="box">
@@ -238,7 +285,7 @@
 <!--Review section end-->
 
 <!--Contact Section Start-->
-<section class="contact">
+<section class="contact" id="contact">
     <h1 class="heading" >CONTACT <span>US</span></h1>
     <div class="row"> 
         <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6119.648560402154!2d32.84680067663656!3d39.922948417702116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34effd6b9930b%3A0x6fa79cbeeeec0bac!2zS8SxesSxbGF5LCAwNjQyMCDDh2Fua2F5YS9BbmthcmE!5e0!3m2!1str!2str!4v1656552526329!5m2!1str!2str" allowfullscreen=""referrerpolicy="no-referrer-when-downgrade"></iframe> <!--google maps iframe'i-->
@@ -266,7 +313,7 @@
 
 <!--Contact Section End-->
 <!--Blogs Section Start-->
-<section class="blog">
+<section class="blog" id="blog">
     <h1 class="heading" >OUR <span>blogs</span></h1>
     <div class="box-container">
         <div class="box">
@@ -348,7 +395,7 @@
     </div>
 </section>
 <!--Footer Section End-->
-    
+    <script src="script.js"></script> <!--JS HTML in en altında tanımlanır-->
   
 </body>
 </html>
